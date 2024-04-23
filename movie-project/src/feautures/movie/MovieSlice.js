@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import apiService from "../../app/apiService"
 
-
 const options = {
     method: 'GET',
     headers: {

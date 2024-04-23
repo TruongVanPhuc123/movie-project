@@ -30,7 +30,7 @@ function HomePage() {
             </div>
             <div style={{ paddingBottom: "50px" }} className='container-movielist'>
                 <Stack justifyContent={"center"} alignItems={"center"}>
-                    <Banner movie={nowPlaying} />
+                    <Banner movie={topRated} />
                     <ListMovie movies={nowPlaying} title="Now Playing" />
                     <ListMovie movies={popular} title="Popular" />
                     <ListMovie movies={topRated} title="Top Rated" />

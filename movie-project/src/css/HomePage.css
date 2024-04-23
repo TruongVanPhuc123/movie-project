@@ -1,3 +1,7 @@
+:root {
+    --swiper-theme-color: #fa6400 !important;
+}
+
 .image-content {
     padding: 3%;
 }
@@ -88,10 +92,41 @@
     z-index: 0;
     top: -1px;
     left: 0px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
 }
 
+.back {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    background-color: rgba(168, 168, 168, 0.4);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.rated-detail {
+    position: absolute;
+    top: 5%;
+    right: 6%;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: cursive;
+}
+
+.rated-detail .vote-detail {
+    font-size: 1.5rem;
+}
+
+.rated-detail .icon-detail {
+    color: #c85000;
+}
 
 .movie-button {
     align-items: center;
@@ -178,13 +213,13 @@
     color: #FFFFFF;
     font-family: "SF Mono", "Source Code Pro", Consolas, Menlo, monospace;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 17px;
     outline: 0;
     padding: 6px 16px;
     text-align: center;
     touch-action: manipulation;
     transition: all .1s;
-    width: 80px;
+    width: 40px;
     background-color: initial;
     background-image: linear-gradient(220.55deg, #E20000 0%, rgb(210 82 39) 50%);
     background-blend-mode: initial;
