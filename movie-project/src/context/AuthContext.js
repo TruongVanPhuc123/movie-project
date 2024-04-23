@@ -12,7 +12,7 @@ const options = {
 const initialState = {
     isInitialized: false,
     isAuthenticated: false,
-    user: null,
+    user: window.localStorage.getItem('email'),
     token: window.localStorage.getItem('token'),
 }
 
@@ -44,6 +44,8 @@ function AuthProvider({ children }) {
 
 
     const login = async ({ email, password }, callback) => {
+        window.localStorage.setItem("email", email)
+
         const response = await apiService.get('/authentication/token/new', options)
         const { request_token } = response
 

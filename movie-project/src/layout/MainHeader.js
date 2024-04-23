@@ -1,7 +1,6 @@
 import React from 'react'
 import "../css/layout_css/MainHeader.css"
 import Logo from "../components/Logo"
-import Navbar from './Navbar';
 import AvatarGroup from '../feautures/avatar/AvatarGroup';
 import SearchGroup from '../feautures/search-movie/SearchGroup';
 import { Stack } from '@mui/material';
@@ -15,7 +14,7 @@ function MainHeader() {
                     <span>CoderSchool</span>
                 </div>
                 {/* <Navbar /> */}
-                <Stack spacing={1} direction={"row  "}>
+                <Stack spacing={2} direction={"row"}>
                     <SearchGroup />
                     <AvatarGroup />
                 </Stack>
