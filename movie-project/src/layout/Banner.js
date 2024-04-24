@@ -15,7 +15,6 @@ import GradeIcon from '@mui/icons-material/Grade';
 function Banner({ movie }) {
     const trailerId = useSelector(state => state.trailer.trailerId)
     const dispatch = useDispatch()
-    console.log(movie)
 
     const getId = (id) => {
         dispatch(getIdTrailer({ id }))

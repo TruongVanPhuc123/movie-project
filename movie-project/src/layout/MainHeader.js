@@ -4,13 +4,15 @@ import Logo from "../components/Logo"
 import AvatarGroup from '../feautures/avatar/AvatarGroup';
 import SearchGroup from '../feautures/search-movie/SearchGroup';
 import { Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function MainHeader() {
+    const navigate = useNavigate()
 
     return (
         <div className='container-header'>
             <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"} sx={{ width: "80%" }}>
-                <div className='logo'>
+                <div className='logo' onClick={() => navigate("/")}>
                     <span>CoderSchool</span>
                 </div>
                 {/* <Navbar /> */}
