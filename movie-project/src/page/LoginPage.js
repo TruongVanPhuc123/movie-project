@@ -13,10 +13,12 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { LoadingButton } from '@mui/lab';
 
+
 const loginSchema = Yup.object().shape({
-    email: Yup.string().required("Email is required"),
+    email: Yup.string().email("Email error").required("Email is required"),
     password: Yup.string().required("Password is required")
 })
+
 
 const defaultValues = {
     email: '',
@@ -27,25 +29,22 @@ const defaultValues = {
 function LoginPages() {
 
     const methods = useForm({ resolver: yupResolver(loginSchema), defaultValues })
-    const { reset, setError, handleSubmit, formState: { errors, isSubmitting } } = methods
+    const { reset, handleSubmit, formState: { isSubmitting } } = methods
     const [showPassword, setShowPassword] = useState(false)
-    // const { isAuthenticated } = useAuth()
+
 
     const auth = useAuth()
-    // const location = useLocation()
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
 
-        // const from = location.state?.from?.pathname || '/'
         let { email, password } = data
 
         try {
             await auth.login({ email, password })
             navigate("/")
-        } catch (error) {
+        } catch {
             reset()
-            setError("responseError", error)
         }
     }
 
@@ -54,8 +53,8 @@ function LoginPages() {
             <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
                 <Stack spacing={3}>
 
-                    {!!errors.responseError && (
-                        <Alert severity='error'>{errors.responseError.message}</Alert>
+                    {auth.error !== null && (
+                        <Alert severity='error'>{auth.error}</Alert>
                     )}
                     <Alert severity='info'>Don't have account?{' '}
                         <Link variant='subtitle2' component={RouterLink} to='/register'>Get Started</Link>
@@ -80,7 +79,7 @@ function LoginPages() {
                 </Stack>
                 <Stack direction="row" alignItems='center' justifyContent='space-between' sx={{ my: 2 }}>
                     <FCheckbox name='remember' label='Remember me' />
-                    <Link component={RouterLink} variant='subtitle2' to='/'>Forgot Password?</Link>
+                    <Link component={RouterLink} variant='subtitle2'>Forgot Password?</Link>
                 </Stack>
                 <LoadingButton fullWidth size='large' type='submit' variant='contained' loading={isSubmitting}>Login</LoadingButton>
             </FormProvider>

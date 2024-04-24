@@ -1,7 +1,7 @@
 import React from 'react'
 import "../css/layout_css/MainHeader.css"
 import Logo from "../components/Logo"
-import AvatarGroup from '../feautures/avatar/AvatarGroup';
+import AvatarGroup from './AvatarGroup';
 import SearchGroup from '../feautures/search-movie/SearchGroup';
 import { Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';

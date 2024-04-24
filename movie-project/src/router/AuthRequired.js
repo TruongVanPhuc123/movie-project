@@ -10,7 +10,7 @@ export default function AuthRequired({ children }) {
     // if (!isInitialized) {
     //     return <LoadingScreen />;
     // }
-    if (!token) {
+    if (token === null) {
         return <Navigate to='/login' />
     }
     return children

@@ -1,6 +1,6 @@
 import { Avatar, Stack, styled } from '@mui/material';
 import React, { useState } from 'react'
-import useAuth from '../../hook/useAuth';
+import useAuth from '../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -16,10 +16,11 @@ const CustomizedAvatar = styled(Avatar)`
 `;
 
 function AvatarGroup() {
-    const { logout, user } = useAuth()
-    console.log(user)
+    const { logout, user, email, password } = useAuth()
     const [open, setOpen] = useState(false)
     const navigate = useNavigate()
+
+    console.log(user, email, password)
 
 
     return (

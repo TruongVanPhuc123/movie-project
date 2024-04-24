@@ -73,7 +73,7 @@ span:not([disabled]):hover {
     position: absolute;
     width: auto;
     height: auto;
-    right: 4%;
+    right: 10%;
     top: 110%;
     padding: 10px 20px;
     background-color: rgb(24, 24, 24, 0.7);
