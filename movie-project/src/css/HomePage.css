@@ -72,12 +72,14 @@
 .card {
     margin: 0 !important;
     position: relative;
+    transition: 1s;
 }
 
 .card img {
     width: 200px;
     height: 300px;
     border-radius: 10px;
+    transition: 1s;
 }
 
 .swiper {

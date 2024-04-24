@@ -15,9 +15,9 @@ const initialState = {
     status: "ide",
 }
 
-export const getMovieListSearch = createAsyncThunk('getMovieListSearch', async ({ query }) => {
-    console.log(query)
-    const response = await apiService.get(`/search/movie?query=${query}`, options)
+export const getMovieListSearch = createAsyncThunk('getMovieListSearch', async ({ query, page }) => {
+    console.log(query, page)
+    const response = await apiService.get(`/search/movie?query=${query}&page=${page}`, options)
     return response.results
 })
 

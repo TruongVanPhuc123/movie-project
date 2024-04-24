@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import MovieCard from './MovieCard'
-import { Stack } from '@mui/material'
+import { IconButton, Stack, Typography, styled } from '@mui/material'
 
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,6 +14,8 @@ import { useDispatch } from 'react-redux';
 import { getMovieDetail } from './detail-movie/DetailSlice';
 import { useNavigate } from 'react-router-dom';
 import InfoIcon from '@mui/icons-material/Info';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const theme = {
     backgroundImage: "radial-gradient(87% 50% at 50% -38%, rgba(255, 255, 255, .05) 77.5%, rgba(255, 255, 255, .016) 88.13%, rgba(255, 255, 255, 0) 100%), radial-gradient(97% 109% at 48% 0, rgba(0, 0, 0, .07) 0, rgba(0, 0, 0, .4) 100%)",
@@ -23,8 +25,14 @@ const theme = {
     gap: "30px"
 }
 
-function ListMovie({ title, movies }) {
+const CustomizeIconButton = styled(IconButton)`
+    color:white;
+`
+
+function ListMovie({ title, movies, page, handlePage }) {
+
     const newMovie = movies
+    console.log(movies)
 
     let defaultIndex = 0;
     let secondIndex = 4
@@ -48,10 +56,19 @@ function ListMovie({ title, movies }) {
                                 <h2>
                                     <span>{title}</span>
                                 </h2>
+                                <Stack direction={"row"} alignItems={"center"} spacing={1}>
+                                    <CustomizeIconButton disabled={page === 1} onClick={() => handlePage(page - 1)}>
+                                        <ArrowBackIosNewIcon />
+                                    </CustomizeIconButton>
+                                    <Typography variant='h6'>{page}</Typography>
+                                    <CustomizeIconButton disabled={movies?.length === 0} onClick={() => handlePage(page + 1)}>
+                                        <ArrowForwardIosIcon />
+                                    </CustomizeIconButton>
+                                </Stack>
                             </div>
 
                             <Stack sx={{ width: "100%" }} >
-                                <Stack sx={{ paddingBottom: "50px", paddingTop: "50px", gap: "30px" }} flexWrap={"wrap"} justifyContent={"start"} alignItems={"center"} direction={"row"} >
+                                <Stack sx={{ paddingBottom: "50px", paddingTop: "50px", gap: "30px", transition: "1s ease" }} flexWrap={"wrap"} justifyContent={"center"} alignItems={"center"} direction={"row"} >
                                     {movies.map((movie) =>
                                         movie.poster_path !== null && (
                                             <MovieCard title={movie.title} img={movie.poster_path} movie={movie} />
