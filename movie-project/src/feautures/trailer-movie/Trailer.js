@@ -40,6 +40,7 @@ export default function Trailer({ trailerId }) {
 
     const key = useSelector(state => state.trailer.trailerId)
     const dispatch = useDispatch()
+    console.log(key)
 
 
     React.useEffect(() => {
@@ -49,11 +50,13 @@ export default function Trailer({ trailerId }) {
 
     return (
         <>
-            <div onClick={handleOpen}>
-                <CustomizedIconButton  >
-                    <PlayCircleFilledIcon /> Play Trailer
-                </CustomizedIconButton>
-            </div>
+            {key.length > 0 && (
+                <div onClick={handleOpen}>
+                    <CustomizedIconButton  >
+                        <PlayCircleFilledIcon /> Play Trailer
+                    </CustomizedIconButton>
+                </div>
+            )}
             <Modal
                 open={open}
                 onClose={handleClose}

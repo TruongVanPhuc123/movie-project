@@ -54,7 +54,7 @@ function DetailPage() {
                 </Stack>
                 <Stack style={{ width: "80%", textAlign: "center" }} spacing={3}>
                     <CustomizedTypography variant='h5' > {detailId.title} <span>{date}</span></CustomizedTypography>
-                    <Typography sx={{ width: "100%" }} variant='subtitle1'>{detailId.overview}</Typography>
+                    <Typography sx={{ width: "100%", textTransform: "capitalize" }} variant='subtitle1'>{detailId.overview}</Typography>
                 </Stack>
             </Stack>
         </>
