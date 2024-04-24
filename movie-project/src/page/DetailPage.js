@@ -30,8 +30,6 @@ function DetailPage() {
         dispatch(getMovieDetail({ id }))
     }, [id, dispatch])
 
-
-
     return (
         <>
             <div className='slide-bar'>

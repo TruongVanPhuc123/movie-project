@@ -7,6 +7,7 @@ import { getIdTrailer } from '../trailer-movie/TrailerSlice';
 import { useDispatch, useSelector } from 'react-redux'
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import { IconButton, styled } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -40,7 +41,9 @@ export default function Trailer({ trailerId }) {
 
     const key = useSelector(state => state.trailer.trailerId)
     const dispatch = useDispatch()
-    console.log(key)
+
+    const location = useLocation()
+    console.log(location)
 
 
     React.useEffect(() => {

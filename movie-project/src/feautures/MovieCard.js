@@ -1,6 +1,5 @@
 import { Stack, Typography, styled } from '@mui/material'
 import React from 'react'
-import Trailer from './trailer-movie/Trailer'
 import InfoIcon from '@mui/icons-material/Info';
 import { useDispatch } from 'react-redux';
 import { getMovieDetail } from './detail-movie/DetailSlice';

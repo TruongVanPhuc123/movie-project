@@ -11,14 +11,18 @@ import Trailer from '../feautures/trailer-movie/Trailer';
 import { useDispatch, useSelector } from 'react-redux'
 import GradeIcon from '@mui/icons-material/Grade';
 import { getMovieDetail } from '../feautures/detail-movie/DetailSlice';
+import { useNavigate } from 'react-router-dom';
+import InfoIcon from '@mui/icons-material/Info';
 
 function Banner({ movie }) {
     const { detailId } = useSelector(state => state.detail)
     console.log(detailId)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const getId = (id) => {
         dispatch(getMovieDetail({ id }))
+        navigate(`/detail/${id}`)
     }
 
     return (
@@ -68,7 +72,7 @@ function Banner({ movie }) {
                                     </Stack>
                                     <Stack direction={"row"} spacing={2} alignItems={"end"} >
                                         <Stack direction={"row"} spacing={2} alignItems={"center"} >
-                                            <span onClick={() => getId(movieRender.id)}><Trailer trailerId={detailId.id} /></span>
+                                            <span className='' onClick={() => getId(movieRender.id)}>Detail Movie</span>
                                             <button className='movie-button'>Play Movie</button>
                                         </Stack>
 
