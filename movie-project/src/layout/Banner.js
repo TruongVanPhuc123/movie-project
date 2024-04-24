@@ -9,15 +9,16 @@ import 'swiper/css/navigation';
 
 import Trailer from '../feautures/trailer-movie/Trailer';
 import { useDispatch, useSelector } from 'react-redux'
-import { getIdTrailer } from '../feautures/trailer-movie/TrailerSlice';
 import GradeIcon from '@mui/icons-material/Grade';
+import { getMovieDetail } from '../feautures/detail-movie/DetailSlice';
 
 function Banner({ movie }) {
-    const trailerId = useSelector(state => state.trailer.trailerId)
+    const { detailId } = useSelector(state => state.detail)
+    console.log(detailId)
     const dispatch = useDispatch()
 
     const getId = (id) => {
-        dispatch(getIdTrailer({ id }))
+        dispatch(getMovieDetail({ id }))
     }
 
     return (
@@ -63,21 +64,11 @@ function Banner({ movie }) {
                                     <Stack spacing={3} sx={{ width: "50%", textAlign: "start" }} >
                                         <div className='name-movie'>{movieRender.title} <span>{movieRender.release_date.slice(0, 4)}</span></div>
                                         {/* <div className='overview-movie'>{movieRender.overview}</div> */}
-                                        <div className='text-right-detail'>
-                                            <div className='id'>
-                                                Movie ID: {movieRender.id}
-                                            </div>
-                                            {/* <div className='popularity'>
-                                                Popularity : {movieRender.popularity}
-                                            </div> */}
-                                            <div className='voteCount'>
-                                                Vote Count: {movieRender.vote_count}
-                                            </div>
-                                        </div>
+
                                     </Stack>
                                     <Stack direction={"row"} spacing={2} alignItems={"end"} >
                                         <Stack direction={"row"} spacing={2} alignItems={"center"} >
-                                            <span onClick={() => getId(movieRender.id)}><Trailer trailerId={trailerId} /></span>
+                                            <span onClick={() => getId(movieRender.id)}><Trailer trailerId={detailId.id} /></span>
                                             <button className='movie-button'>Play Movie</button>
                                         </Stack>
 
