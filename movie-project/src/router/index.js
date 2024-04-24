@@ -8,6 +8,7 @@ import RegisterPage from '../page/RegisterPage'
 import NotFoundPage from '../page/NotFoundPage'
 import AuthRequired from './AuthRequired'
 import SearchPage from '../page/SearchPage'
+import DetailPage from '../page/DetailPage'
 
 function Router() {
     return (
@@ -15,6 +16,9 @@ function Router() {
             <Route path='/' element={<AuthRequired><MainLayout /></AuthRequired>}>
                 <Route index element={<HomePage />} />
                 <Route path='/search' element={<SearchPage />} />
+                <Route path='/detail' element={<DetailPage />}>
+                    <Route path=':id' element={<DetailPage />} />
+                </Route>
             </Route>
             <Route element={<BlankLayout />}>
                 <Route path="/login" element={<LoginPage />} />

@@ -8,7 +8,6 @@ const initialState = {
 
 export const getMovieDetail = createAsyncThunk('getMovieDetail', async ({ id }) => {
     const response = await apiService.get(`/movie/${id}?api_key=5be5d338bfe89e06c31e5034b37b82d2`)
-    console.log(id)
     return response
 })
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import { getMovieListSearch } from '../feautures/search-movie/SearchSlice'
 import ListMovie from '../feautures/ListMovie'
+import Navbar from '../layout/Navbar'
 
 
 
@@ -18,9 +19,12 @@ function SearchPage() {
     }, [query])
 
     return (
-        <div>
+        <>
+            <div className='slide-bar'>
+                <Navbar />
+            </div>
             <ListMovie movies={searchList} title="Search List" />
-        </div>
+        </>
     )
 }
 

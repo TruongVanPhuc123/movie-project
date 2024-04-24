@@ -5,6 +5,8 @@ import '../../css/HomePage.css'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { getIdTrailer } from '../trailer-movie/TrailerSlice';
 import { useDispatch, useSelector } from 'react-redux'
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
+import { IconButton, styled } from '@mui/material';
 
 const style = {
     position: 'absolute',
@@ -16,6 +18,20 @@ const style = {
     alignItems: "center",
     justifyContent: "center",
 };
+
+
+const CustomizedIconButton = styled(IconButton)`
+  color: white;
+  transition: 0.5s ease;
+  display:flex;
+  gap: 10px;
+  alignItems: center;
+
+  :hover {
+    color:  rgb(210 82 39);
+  }
+
+`;
 
 export default function Trailer({ trailerId }) {
     const [open, setOpen] = React.useState(false);
@@ -33,7 +49,11 @@ export default function Trailer({ trailerId }) {
 
     return (
         <>
-            <div onClick={handleOpen}> Play Trailer</div>
+            <div onClick={handleOpen}>
+                <CustomizedIconButton  >
+                    <PlayCircleFilledIcon /> Play Trailer
+                </CustomizedIconButton>
+            </div>
             <Modal
                 open={open}
                 onClose={handleClose}
