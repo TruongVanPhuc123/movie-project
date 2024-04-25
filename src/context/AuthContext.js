@@ -1,5 +1,6 @@
 import { createContext, useEffect, useReducer } from "react";
 import apiService from "../app/apiService";
+import { toast } from "react-toastify";
 
 const options = {
     method: 'GET',
@@ -86,6 +87,7 @@ function AuthProvider({ children }) {
 
                 console.log(request_token)
                 dispatch({ type: LOGIN_SUCCESS, payload: { email: email, token: request_token } })
+                toast.success("Login Success")
             }
         } else {
             return
@@ -110,6 +112,7 @@ function AuthProvider({ children }) {
         window.localStorage.removeItem('password')
         window.localStorage.removeItem('user')
         dispatch({ type: LOGOUT })
+
     }
 
     return (
