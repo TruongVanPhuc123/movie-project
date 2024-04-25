@@ -46,7 +46,8 @@ const reducer = (state, action) => {
         case LOGOUT:
             return { ...state, isAuthenticated: false }
         case ISINITIALIZED:
-            return { ...state, isInitialized: true, isAuthenticated: true }
+            const { isAuthenticated } = action.payload
+            return { ...state, isInitialized: true, isAuthenticated }
 
         default:
             return state;
@@ -61,7 +62,10 @@ function AuthProvider({ children }) {
         const token = window.localStorage.getItem('token')
         const AuthToken = () => {
             if (token) {
-                dispatch({ type: ISINITIALIZED })
+                dispatch({ type: ISINITIALIZED, payload: { isAuthenticated: true } })
+            }
+            else {
+                dispatch({ type: ISINITIALIZED, payload: { isAuthenticated: false } })
             }
         }
         AuthToken();
