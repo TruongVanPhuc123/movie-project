@@ -16,16 +16,8 @@ const CustomizedAvatar = styled(Avatar)`
 `;
 
 function AvatarGroup() {
-    const { logout, user, email, password } = useAuth()
+    const { logout, user } = useAuth()
     const [open, setOpen] = useState(false)
-    const navigate = useNavigate()
-
-    console.log(user, email, password)
-
-    const hanldeLogout = () => {
-        logout(() => navigate("/login"))
-    }
-
 
     return (
         <>
