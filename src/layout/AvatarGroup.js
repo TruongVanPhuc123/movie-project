@@ -37,7 +37,7 @@ function AvatarGroup() {
             <div className={`account ${open ? 'active' : 'inactive'}`} >
                 <Stack spacing={2}>
                     <div className='props'>Hi <span>{user}</span></div>
-                    <div className='props' onClick={() => navigate('/profile')}>My Profile</div>
+                    {/* <div className='props' onClick={() => navigate('/profile')}>My Profile</div> */}
                     <div onClick={logout} className='props' style={{ display: "flex", alignItems: 'center', justifyContent: 'center', gap: '10px' }}><LogoutIcon /> Logout</div>
                 </Stack>
             </div>
