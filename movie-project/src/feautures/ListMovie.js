@@ -29,7 +29,7 @@ const CustomizeIconButton = styled(IconButton)`
     color:white;
 `
 
-function ListMovie({ title, movies, page, handlePage }) {
+function ListMovie({ title, movies, page, handlePage, query }) {
 
     const newMovie = movies
     console.log(movies)
@@ -52,10 +52,11 @@ function ListMovie({ title, movies, page, handlePage }) {
                 <Stack justifyContent={"center"} alignItems={"center"}>
                     <div className='container-main' style={{ width: "80%", paddingTop: "50px" }}>
                         <Stack sx={{ width: "100%" }}>
-                            <div className='title-movie'>
+                            <div id='title-movie'>
                                 <h2>
                                     <span>{title}</span>
                                 </h2>
+                                <Typography variant="subtitle2">Value Search: {query}</Typography>
                                 <Stack direction={"row"} alignItems={"center"} spacing={1}>
                                     <CustomizeIconButton disabled={page === 1} onClick={() => handlePage(page - 1)}>
                                         <ArrowBackIosNewIcon />
@@ -79,12 +80,12 @@ function ListMovie({ title, movies, page, handlePage }) {
                     </div>
                 </Stack> :
                 <div className='container-main' style={{ width: "80%" }}>
-                    <div className='title-movie'>
+                    <div id='title-movie'>
                         <h2>
                             <span>{title}</span>
                         </h2>
                     </div>
-                    <div style={{ paddingTop: "50px", width: "100%" }}>
+                    <div style={{ paddingTop: "30px", width: "100%" }}>
                         <Swiper
                             speed={2000}
                             spaceBetween={30}
@@ -98,14 +99,14 @@ function ListMovie({ title, movies, page, handlePage }) {
                             }}
                             navigation={true}
                             modules={[Navigation, Autoplay]}
-                            className="mySwiper"
+                            className="mySwiper" style={theme}
                         >
                             {movies.map((movie, index) => (
                                 index % 5 === 0 &&
                                 <SwiperSlide style={{ display: "flex", gap: '30px', justifyContent: "center", alignItems: "center" }}>
                                     {newMovie.slice(defaultIndex += 4, secondIndex += 4).map(movie => (
                                         <div className='group-card'>
-                                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} height={"350px"} width={"100%"} style={{ borderRadius: "10px" }} />
+                                            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} height={"340px"} width={"100%"} style={{ borderRadius: "10px" }} />
                                             <div className='detail'>
                                                 <span className='name-movie'>{movie.title}</span>
                                                 <span className='' onClick={() => handleClick(movie.id)}><InfoIcon /></span>

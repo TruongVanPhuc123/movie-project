@@ -30,7 +30,7 @@ function SearchPage() {
             <div className='slide-bar'>
                 <Navbar />
             </div>
-            <ListMovie movies={searchList} title="Search List" page={page} handlePage={handlePage} />
+            <ListMovie movies={searchList} title="Search List" page={page} handlePage={handlePage} query={query} />
         </>
     )
 }

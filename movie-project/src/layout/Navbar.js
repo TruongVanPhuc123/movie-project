@@ -19,20 +19,22 @@ const CustomizedLink = styled(Link)`
 
 `;
 
-function Navbar() {
+function Navbar({ title }) {
+  console.log(title)
+
   return (
     <Stack spacing={3} >
       <>
-        <CustomizedLink to="/" component={RouterLink} underline='none' variant='subtitle1' >
+        <CustomizedLink href={`/`} /*component={RouterLink}*/ underline='none' variant='subtitle1' >
           <HomeIcon children="node" /> <div>Home</div>
         </CustomizedLink>
-        <CustomizedLink to="/" component={RouterLink} underline='none' variant='subtitle1' sx={{ color: "white" }}>
+        <CustomizedLink href={`#`} /*component={RouterLink}*/ underline='none' variant='subtitle1' sx={{ color: "white" }}>
           <ContentCutIcon /> Genres
         </CustomizedLink>
-        <CustomizedLink to="/" component={RouterLink} underline='none' variant='subtitle1' sx={{ color: "white" }}>
+        <CustomizedLink href={`#`} /*component={RouterLink}*/ underline='none' variant='subtitle1' sx={{ color: "white" }}>
           <LocalFireDepartmentIcon /> Top Rated
         </CustomizedLink>
-        <CustomizedLink to="/" component={RouterLink} underline='none' variant='subtitle1' sx={{ color: "white" }}>
+        <CustomizedLink href={`#`} /*component={RouterLink}*/ underline='none' variant='subtitle1' sx={{ color: "white" }}>
           <LiveTvIcon /> Upcoming
         </CustomizedLink>
       </>

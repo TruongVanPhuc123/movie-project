@@ -4,15 +4,37 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
 import RecyclingIcon from '@mui/icons-material/Recycling';
 import "../css/layout_css/MainFooter.css"
+import { IconButton, Link, styled } from '@mui/material';
+
+const CustommizeLink = styled(Link)`
+color:#fa6400;
+`
 
 function MainFooter() {
     return (
         <div className='container-footer'>
             <div className='icon'>
-                <GitHubIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
-                <FacebookIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
-                <EmailIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
-                <RecyclingIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
+
+                <IconButton >
+                    <CustommizeLink href="https://github.com/TruongVanPhuc123" >
+                        <GitHubIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
+                    </CustommizeLink>
+                </IconButton>
+                <IconButton >
+                    <CustommizeLink href="https://www.facebook.com/profile.php?id=100052445172699" >
+                        <FacebookIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
+                    </CustommizeLink>
+                </IconButton>
+                <IconButton >
+                    <CustommizeLink href="https://mail.google.com/" >
+                        <EmailIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
+                    </CustommizeLink>
+                </IconButton>
+                <IconButton >
+                    <CustommizeLink href="#" >
+                        <RecyclingIcon style={{ fontSize: "2rem", cursor: 'pointer' }} />
+                    </CustommizeLink>
+                </IconButton>
             </div>
             <div className='title'>
                 <p>Truong Van Phuc - <span>Designer</span></p>

@@ -26,7 +26,7 @@ function HomePage() {
     return (
         <div className='container-main'>
             <div className='slide-bar'>
-                <Navbar />
+                <Navbar title={{ now: "Now Playing", pop: "Popular", top: "Top Rated", up: "Upcoming" }} />
             </div>
             <div style={{ paddingBottom: "50px" }} className='container-movielist'>
                 <Stack justifyContent={"center"} alignItems={"center"} sx={{ width: "100%   " }}>
