@@ -7,10 +7,10 @@ export default function AuthRequired({ children }) {
     const token = window.localStorage.getItem("token")
     const { isAuthenticated, isInitialized } = useAuth()
 
-    // if (!isInitialized) {
-    //     return <LoadingScreen />;
-    // }
-    if (token === null) {
+    if (!isInitialized) {
+        return <LoadingScreen />;
+    }
+    if (!isAuthenticated) {
         return <Navigate to='/login' />
     }
     return children

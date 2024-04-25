@@ -22,6 +22,10 @@ function AvatarGroup() {
 
     console.log(user, email, password)
 
+    const hanldeLogout = () => {
+        logout(() => navigate("/login"))
+    }
+
 
     return (
         <>

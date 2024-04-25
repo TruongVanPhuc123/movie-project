@@ -29,7 +29,6 @@ const AuthContext = createContext({ ...initialState })
 
 const reducer = (state, action) => {
     const { type } = action
-    console.log(action.payload.token)
     switch (type) {
         case LOGIN_SUCCESS:
             return { ...state, isAuthenticated: true, user: action.payload.email, token: window.localStorage.setItem('token', action.payload.token) }
@@ -47,7 +46,7 @@ const reducer = (state, action) => {
         case LOGOUT:
             return { ...state, isAuthenticated: false }
         case ISINITIALIZED:
-            return { ...state, isInitialized: true }
+            return { ...state, isInitialized: true, isAuthenticated: true }
 
         default:
             return state;
@@ -57,6 +56,16 @@ const reducer = (state, action) => {
 
 function AuthProvider({ children }) {
     const [state, dispatch] = useReducer(reducer, initialState)
+
+    useEffect(() => {
+        const token = window.localStorage.getItem('token')
+        const AuthToken = () => {
+            if (token) {
+                dispatch({ type: ISINITIALIZED })
+            }
+        }
+        AuthToken();
+    }, [])
 
 
     const login = async ({ email, password }) => {
@@ -96,7 +105,6 @@ function AuthProvider({ children }) {
         window.localStorage.removeItem('password')
         window.localStorage.removeItem('user')
         dispatch({ type: LOGOUT })
-
     }
 
     return (
