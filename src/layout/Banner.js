@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import React from 'react'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -27,7 +27,7 @@ function Banner({ movie }) {
 
     return (
         <>
-            <div className='movie-banner'>
+            <Stack direction={"row"} flexWrap={"wrap"} alignItems={"center"} justifyContent={"center"} sx={{ width: "80%", position: "relative", paddingTop: "80px" }}>
                 <Swiper
                     speed={2000}
                     parallax={true}
@@ -59,10 +59,10 @@ function Banner({ movie }) {
                 >
                     {movie.map((movieRender, index) => (
                         <SwiperSlide key={index}>
-                            <div className='group-img'>
-                                <img src={`https://image.tmdb.org/t/p/w500/${movieRender.backdrop_path}`} alt='movie' />
+                            <Box>
+                                <img src={`https://image.tmdb.org/t/p/w500/${movieRender.backdrop_path}`} alt='movie' width={"100%"} height={"500px"} style={{ borderRadius: "10px" }} />
                                 <div className='drop'></div>
-                            </div>
+                            </Box>
                             <div className='overview-group'>
                                 <Stack direction={"row"} justifyContent={"space-around"}>
                                     <Stack spacing={3} sx={{ width: "50%", textAlign: "start" }} >
@@ -86,7 +86,7 @@ function Banner({ movie }) {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </div>
+            </Stack>
         </>
     )
 }
