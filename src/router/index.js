@@ -9,6 +9,7 @@ import NotFoundPage from '../page/NotFoundPage'
 import AuthRequired from './AuthRequired'
 import SearchPage from '../page/SearchPage'
 import DetailPage from '../page/DetailPage'
+import GenresPage from '../page/GenresPage'
 
 function Router() {
     return (
@@ -18,6 +19,9 @@ function Router() {
                 <Route path='/search' element={<SearchPage />} />
                 <Route path='/detail' element={<DetailPage />}>
                     <Route path=':id' element={<DetailPage />} />
+                </Route>
+                <Route path='/genres' element={<GenresPage />}>
+                    <Route path=':id' element={<GenresPage />} />
                 </Route>
             </Route>
             <Route element={<BlankLayout />}>

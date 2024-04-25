@@ -4,7 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
 import RecyclingIcon from '@mui/icons-material/Recycling';
 import "../css/layout_css/MainFooter.css"
-import { IconButton, Link, styled } from '@mui/material';
+import { Container, IconButton, Link, Stack, styled } from '@mui/material';
 
 const CustommizeLink = styled(Link)`
 color:#fa6400;
@@ -39,10 +39,10 @@ function MainFooter() {
             <div className='title'>
                 <p>Truong Van Phuc - <span>Designer</span></p>
             </div>
-            <div class="logoFooter">
+            <Stack alignItems={"center"} spacing={1} direction={"row"} sx={{ fontSize: "1rem" }}>
                 <img src="https://platform.coderschool.vn/v2/static/img/coderschool-logo-compact.svg" width="30" />
                 <span>CoderSchool</span>
-            </div>
+            </Stack>
         </div>
     )
 }

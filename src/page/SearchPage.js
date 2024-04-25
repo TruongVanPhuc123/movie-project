@@ -26,12 +26,7 @@ function SearchPage() {
     }
 
     return (
-        <>
-            <div className='slide-bar'>
-                <Navbar />
-            </div>
-            <ListMovie movies={searchList} title="Search List" page={page} handlePage={handlePage} query={query} />
-        </>
+        <ListMovie movies={searchList} title="Search List" page={page} handlePage={handlePage} query={query} render="NoSwiper" />
     )
 }
 

@@ -24,20 +24,13 @@ function HomePage() {
     }, [dispatch])
 
     return (
-        <div className='container-main'>
-            <div className='slide-bar'>
-                <Navbar title={{ now: "Now Playing", pop: "Popular", top: "Top Rated", up: "Upcoming" }} />
-            </div>
-            <div style={{ paddingBottom: "50px" }} className='container-movielist'>
-                <Stack justifyContent={"center"} alignItems={"center"} sx={{ width: "100%   " }}>
-                    <Banner movie={topRated} />
-                    <ListMovie movies={nowPlaying} title="Now Playing" />
-                    <ListMovie movies={popular} title="Popular" />
-                    <ListMovie movies={topRated} title="Top Rated" />
-                    <ListMovie movies={upcoming} title="Upcoming" />
-                </Stack>
-            </div>
-        </div>
+        <Stack justifyContent={"center"} alignItems={"center"} sx={{ width: "100%   " }}>
+            <Banner movie={topRated} />
+            <ListMovie movies={nowPlaying} title="Now Playing" />
+            <ListMovie movies={popular} title="Popular" />
+            <ListMovie movies={topRated} title="Top Rated" />
+            <ListMovie movies={upcoming} title="Upcoming" />
+        </Stack>
     )
 }
 

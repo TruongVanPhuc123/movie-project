@@ -25,7 +25,9 @@
     display: flex;
     padding: 20px;
     position: fixed;
-    padding-top: 120px;
+    width: 20%;
+    z-index: 100;
+    margin-top: 80px;
 }
 
 .movie-banner {
@@ -109,10 +111,6 @@
     justify-content: space-around;
     font-size: 20px;
     z-index: 1;
-}
-
-.group-card {
-    position: relative;
 }
 
 .drop {

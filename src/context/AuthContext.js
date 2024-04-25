@@ -41,7 +41,8 @@ const reducer = (state, action) => {
                 ...state, user: action.payload.user,
                 email: action.payload.email,
                 password: action.payload.password,
-                token: window.localStorage.setItem('token', action.payload.token)
+                token: window.localStorage.setItem('token', action.payload.token),
+                error: null,
             }
         case LOGOUT:
             return { ...state, isAuthenticated: false }

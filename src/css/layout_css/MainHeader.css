@@ -8,7 +8,6 @@
     align-items: center;
     z-index: 100;
     font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
-    user-select: none;
 }
 
 span {
@@ -87,4 +86,27 @@ span:not([disabled]):hover {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.genres {
+    position: absolute;
+    width: auto;
+    height: auto;
+    right: 0%;
+    top: 0%;
+    width: auto;
+    height: 500px;
+    padding: 10px 20px;
+    background-color: rgb(24, 24, 24, 0.9);
+    font-family: cursive;
+    color: rgb(155, 153, 153);
+    cursor: pointer;
+    z-index: 100;
+    overflow-x: auto;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
