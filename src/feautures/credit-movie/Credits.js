@@ -5,6 +5,7 @@ import { getCreditMovie } from './CreditSlice'
 import CastMovie from '../CastMovie';
 import CrewMovie from '../CrewMovie';
 import { useNavigate } from 'react-router-dom';
+import { Stack } from '@mui/material';
 
 
 function Credits({ id }) {
