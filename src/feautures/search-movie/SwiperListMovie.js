@@ -45,7 +45,7 @@ function SwiperListMovie({ title, movies }) {
                     <span>{title}</span>
                 </Typography>
             </div>
-            <Box sx={{ paddingTop: "30px", width: "100%" }}>
+            <Box sx={{ paddingTop: "30px", paddingBottom: "30px", width: "100%" }}>
                 <Swiper
                     speed={2000}
                     spaceBetween={30}
