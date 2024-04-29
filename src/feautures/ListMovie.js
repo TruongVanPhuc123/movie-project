@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchListMovie from './SearchListMovie';
-import SwiperListMovie from './SwiperListMovie';
+import SearchListMovie from './search-movie/SearchListMovie';
+import SwiperListMovie from './search-movie/SwiperListMovie';
 
 
 function ListMovie({ title, movies, page, handlePage, query, render }) {

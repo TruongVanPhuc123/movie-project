@@ -69,7 +69,7 @@ function SearchGroup() {
     };
 
     return (
-        <Stack spacing={0} alignItems="center" direction="row">
+        <Stack spacing={0} alignItems="center" direction="row" className='search'>
             <Search>
                 <StyledInputBase
                     placeholder="Search…"

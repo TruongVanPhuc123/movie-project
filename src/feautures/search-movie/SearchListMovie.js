@@ -1,6 +1,6 @@
 import { Box, IconButton, Stack, Typography, styled } from '@mui/material'
 import React from 'react'
-import MovieCard from './MovieCard'
+import MovieCard from '../MovieCard'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 

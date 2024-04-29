@@ -54,7 +54,7 @@ function Banner({ movie }) {
                             rotate: [0, -100, 0],
                         },
                     }}
-                    modules={[Autoplay, Pagination, Navigation, EffectCreative]}
+                    modules={[Navigation, EffectCreative, Autoplay]}
                     className="mySwiper"
                 >
                     {movie.map((movieRender, index) => (
@@ -64,15 +64,15 @@ function Banner({ movie }) {
                                 <div className='drop'></div>
                             </Box>
                             <div className='overview-group'>
-                                <Stack direction={"row"} justifyContent={"space-around"}>
+                                <Stack direction={"row"} justifyContent={"space-around"} className='position-banner'>
                                     <Stack spacing={3} sx={{ width: "50%", textAlign: "start" }} >
                                         <div className='name-movie'>{movieRender.title} <span>{movieRender.release_date.slice(0, 4)}</span></div>
                                         {/* <div className='overview-movie'>{movieRender.overview}</div> */}
 
                                     </Stack>
-                                    <Stack direction={"row"} spacing={2} alignItems={"end"} >
+                                    <Stack direction={"row"} spacing={2} alignItems={"end"} className='btn-group'>
                                         <Stack direction={"row"} spacing={2} alignItems={"center"} >
-                                            <span className='' onClick={() => getId(movieRender.id)}>Detail Movie</span>
+                                            <span className='detail-button' onClick={() => getId(movieRender.id)}>Detail Movie</span>
                                             <button className='movie-button'>Play Movie</button>
                                         </Stack>
 

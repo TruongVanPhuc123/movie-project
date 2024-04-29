@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 
 
 import { useDispatch } from 'react-redux';
-import { getMovieDetail } from './detail-movie/DetailSlice';
+import { getMovieDetail } from '../detail-movie/DetailSlice';
 import { useNavigate } from 'react-router-dom';
 import InfoIcon from '@mui/icons-material/Info';
 import { Box, Stack, Typography } from '@mui/material';
@@ -54,12 +54,9 @@ function SwiperListMovie({ title, movies }) {
                         delay: 3000,
                         disableOnInteraction: false,
                     }}
-                    pagination={{
-                        clickable: true,
-                    }}
                     navigation={true}
-                    modules={[Navigation, Autoplay]}
-                    className="mySwiper" style={theme}
+                    modules={[Autoplay]}
+                    className="mySwiper"
                 >
                     {movies?.map((movie, index) => (
                         index % 5 === 0 &&
@@ -68,15 +65,14 @@ function SwiperListMovie({ title, movies }) {
                                 <Box sx={{ position: "relative" }}>
                                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} height={"340px"} width={"100%"} style={{ borderRadius: "10px" }} />
                                     <div className='detail'>
-                                        <span className='name-movie'>{movie.title}</span>
-                                        <span className='' onClick={() => handleClick(movie.id)}><InfoIcon /></span>
+                                        {/* <span className='name-movie'>{movie.title}</span> */}
+                                        <span className='' onClick={() => handleClick(movie.id)}><InfoIcon className='info' /></span>
                                     </div>
                                     <div className='drop'></div>
                                 </Box>
                             ))}
                         </SwiperSlide>
                     ))}
-
                 </Swiper>
             </Box>
         </Stack >

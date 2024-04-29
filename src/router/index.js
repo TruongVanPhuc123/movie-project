@@ -10,6 +10,7 @@ import AuthRequired from './AuthRequired'
 import SearchPage from '../page/SearchPage'
 import DetailPage from '../page/DetailPage'
 import GenresPage from '../page/GenresPage'
+import PersonPage from '../page/PersonPage'
 
 function Router() {
     return (
@@ -22,6 +23,9 @@ function Router() {
                 </Route>
                 <Route path='/genres' element={<GenresPage />}>
                     <Route path=':id' element={<GenresPage />} />
+                </Route>
+                <Route path='/person' element={<PersonPage />}>
+                    <Route path=':id' element={<PersonPage />} />
                 </Route>
             </Route>
             <Route element={<BlankLayout />}>

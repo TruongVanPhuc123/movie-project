@@ -107,6 +107,28 @@ span:not([disabled]):hover {
     border-radius: 5px;
 }
 
-::-webkit-scrollbar {
+.genres::-webkit-scrollbar {
     display: none;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+.menuIcon {
+    display: none !important;
+}
+
+@media only screen and (max-width:420px) {
+    .slide-bar {
+        display: none !important;
+    }
+
+    .search {
+        display: none !important;
+    }
+
+    .menuIcon {
+        display: block !important;
+    }
 }

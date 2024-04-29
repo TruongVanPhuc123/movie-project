@@ -20,7 +20,7 @@ function MovieCard({ movie, img, title }) {
             <img src={`https://image.tmdb.org/t/p/w500${img}`} alt={title} />
             <div className='drop'></div>
             <div className='detail'>
-                <span className='name-movie'>{movie.title}</span>
+                {/* <span className='name-movie'>{movie.title}</span> */}
                 <span className='' onClick={() => handleClick(movie.id)}><InfoIcon /></span>
             </div>
         </div>
