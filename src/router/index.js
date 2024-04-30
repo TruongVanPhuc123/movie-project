@@ -11,6 +11,8 @@ import SearchPage from '../page/SearchPage'
 import DetailPage from '../page/DetailPage'
 import GenresPage from '../page/GenresPage'
 import PersonPage from '../page/PersonPage'
+import MoviePage from '../page/MoviePage'
+import TVPage from '../page/TVPage'
 
 function Router() {
     return (
@@ -26,6 +28,12 @@ function Router() {
                 </Route>
                 <Route path='/person' element={<PersonPage />}>
                     <Route path=':id' element={<PersonPage />} />
+                </Route>
+                <Route path='/movie' element={<MoviePage />}>
+                    <Route path=':id' element={<MoviePage />} />
+                </Route>
+                <Route path='/tv' element={<TVPage />}>
+                    <Route path=':id' element={<TVPage />} />
                 </Route>
             </Route>
             <Route element={<BlankLayout />}>

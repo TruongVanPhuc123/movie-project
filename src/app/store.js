@@ -5,9 +5,11 @@ import TrailerReducer from "../feautures/trailer-movie/TrailerSlice"
 import DetailReducer from "../feautures/detail-movie/DetailSlice"
 import GenresReducer from "../feautures/genres-movie/GenresSlice"
 import CreditsReducer from "../feautures/credit-movie/CreditSlice"
+import TVReducer from "../feautures/TV/TVSlice"
 
 const rootReducer = {
     movie: MovieReducer,
+    tv: TVReducer,
     search: SearchReducer,
     trailer: TrailerReducer,
     detail: DetailReducer,

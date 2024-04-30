@@ -9,6 +9,8 @@ import Genres from '../feautures/genres-movie/Genres';
 
 import { useDispatch, useSelector } from 'react-redux'
 import { getGenresList } from '../feautures/genres-movie/GenresSlice'
+import Movie from '../feautures/movie/Movie';
+import TV from '../feautures/TV/TV';
 
 const CustomizedLink = styled(Link)`
   color: white;
@@ -24,36 +26,83 @@ const CustomizedLink = styled(Link)`
 
 `;
 
-function Navbar({ title }) {
-  const [open, setOpen] = useState(false)
+function Navbar() {
+  const [openGenres, setOpenGenres] = useState(false)
+  const [openMovie, setOpenMovie] = useState(false)
+  const [openTV, setOpenTV] = useState(false)
+
+  const [focusHome, setFocusHome] = useState(true)
+  const [focusGenres, setFocusGenres] = useState(false)
+  const [focusMovie, setFocusMovie] = useState(false)
+  const [focusTV, setFocusTV] = useState(false)
 
   const genresList = useSelector(state => state.genres?.genresList)
   const dispatch = useDispatch()
 
-  const handleGenres = () => {
-    setOpen(!open)
-    dispatch(getGenresList())
+  const handleClick = (fill) => {
+    if (fill === "genres") {
+      setOpenGenres(!openGenres)
+
+      setOpenMovie(false)
+      setOpenTV(false)
+
+      setFocusGenres(true)
+
+      setFocusHome(false)
+      setFocusMovie(false)
+      setFocusTV(false)
+      return dispatch(getGenresList())
+
+    } else if (fill === 'movie') {
+      setOpenMovie(!openMovie)
+
+      setOpenGenres(false)
+      setOpenTV(false)
+
+      setFocusMovie(true)
+
+      setFocusHome(false)
+      setFocusGenres(false)
+      setFocusTV(false)
+    } else if (fill === "tv") {
+      setOpenTV(!openTV)
+
+      setOpenMovie(false)
+      setOpenGenres(false)
+
+      setFocusTV(true)
+
+      setFocusMovie(false)
+      setFocusHome(false)
+      setFocusGenres(false)
+    }
   }
 
   return (
     <div className='slide-bar'>
       <Stack spacing={3} >
-        <CustomizedLink href={`/`} /*component={RouterLink}*/ underline='none' variant='subtitle1' >
+        <CustomizedLink href={`/`} /*component={RouterLink}*/ underline='none' variant='subtitle1' className={focusHome ? 'focus' : ''}>
           <HomeIcon children="node" /> <div>Home</div>
         </CustomizedLink>
-        <CustomizedLink /*component={RouterLink}*/ underline='none' variant='subtitle1' sx={{ color: "white" }}>
-          <Stack onClick={handleGenres} alignItems={"center"} >
+        <CustomizedLink /*component={RouterLink}*/ underline='none' variant='subtitle1' className={focusGenres ? 'focus' : ''}>
+          <Stack onClick={() => handleClick('genres')} alignItems={"center"} >
             <ContentCutIcon /> Genres
           </Stack>
         </CustomizedLink>
-        <CustomizedLink href={`#`} /*component={RouterLink}*/ underline='none' variant='subtitle1' sx={{ color: "white" }}>
-          <LocalFireDepartmentIcon /> Top Rated
+        <CustomizedLink /*component={RouterLink}*/ underline='none' variant='subtitle1' className={focusMovie ? 'focus' : ''}>
+          <Stack onClick={() => handleClick('movie')} alignItems={"center"}>
+            <LocalFireDepartmentIcon /> Movie
+          </Stack>
         </CustomizedLink>
-        <CustomizedLink href={`#`} /*component={RouterLink}*/ underline='none' variant='subtitle1' sx={{ color: "white" }}>
-          <LiveTvIcon /> Upcoming
+        <CustomizedLink /*component={RouterLink}*/ underline='none' variant='subtitle1' className={focusTV ? 'focus' : ''}>
+          <Stack onClick={() => handleClick('tv')} alignItems={"center"}>
+            <LiveTvIcon /> TV Shows
+          </Stack>
         </CustomizedLink>
       </Stack>
-      <Genres open={open} genresList={genresList} setOpen={setOpen} />
+      <Genres openGenres={openGenres} genresList={genresList} setOpenGenres={setOpenGenres} setFocusGenres={setFocusGenres} />
+      <Movie openMovie={openMovie} setOpenMovie={setOpenMovie} setFocusMovie={setFocusMovie} />
+      <TV openTV={openTV} setOpenTV={setOpenTV} setFocusTV={setFocusTV} />
     </div>
   )
 }

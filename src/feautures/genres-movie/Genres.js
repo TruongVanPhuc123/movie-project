@@ -12,16 +12,17 @@ const CustomizedLink = styled(Link)`
 
 `;
 
-function Genres({ open, genresList, setOpen }) {
+function Genres({ openGenres, genresList, setOpenGenres, setFocusGenres }) {
     const navigate = useNavigate()
 
     const handleGenresPage = (id) => {
-        setOpen(!open)
+        setOpenGenres(!openGenres)
+        setFocusGenres(true)
         navigate(`/genres/${id}`)
     }
 
     return (
-        <div className={`genres ${open ? 'active' : 'inactive'}`} >
+        <div className={`genres ${openGenres ? 'active' : 'inactive'}`} >
             <Stack spacing={2} >
                 {genresList?.map((genres) => (
                     <>

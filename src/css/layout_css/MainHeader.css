@@ -92,7 +92,7 @@ span:not([disabled]):hover {
     position: absolute;
     width: auto;
     height: auto;
-    right: 0%;
+    right: 10%;
     top: 0%;
     width: auto;
     height: 500px;
@@ -111,8 +111,55 @@ span:not([disabled]):hover {
     display: none;
 }
 
-::-webkit-scrollbar-track {
+.movie {
+    position: absolute;
+    width: auto;
+    height: auto;
+    right: 10%;
+    top: 0%;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    background-color: rgb(24, 24, 24, 0.9);
+    font-family: cursive;
+    color: rgb(155, 153, 153);
+    cursor: pointer;
+    z-index: 100;
+    overflow-x: auto;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.movie::-webkit-scrollbar {
     display: none;
+}
+
+.tv {
+    position: absolute;
+    width: auto;
+    height: auto;
+    right: 10%;
+    top: 0%;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    background-color: rgb(24, 24, 24, 0.9);
+    font-family: cursive;
+    color: rgb(155, 153, 153);
+    cursor: pointer;
+    z-index: 100;
+    overflow-x: auto;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.tv::-webkit-scrollbar {
+    display: none;
+}
+
+.focus {
+    color: rgb(210 82 39) !important;
+    transition: 0.5s;
 }
 
 .menuIcon {

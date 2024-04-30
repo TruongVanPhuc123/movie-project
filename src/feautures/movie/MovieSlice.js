@@ -17,20 +17,20 @@ const initialState = {
     status: "ide",
 }
 
-export const getMovieListNowPlaying = createAsyncThunk('getMovieListNowPlaying', async () => {
-    const response = await apiService.get("/movie/now_playing", options)
+export const getMovieListNowPlaying = createAsyncThunk('getMovieListNowPlaying', async ({ page }) => {
+    const response = await apiService.get(`/movie/now_playing?&page=${page}`, options)
     return response.results
 })
-export const getMovieListPopular = createAsyncThunk('getMovieListPopular', async () => {
-    const response = await apiService.get("/movie/popular", options)
+export const getMovieListPopular = createAsyncThunk('getMovieListPopular', async ({ page }) => {
+    const response = await apiService.get(`/movie/popular?&page=${page}`, options)
     return response.results
 })
-export const getMovieListToprated = createAsyncThunk('getMovieListToprated', async () => {
-    const response = await apiService.get("/movie/top_rated", options)
+export const getMovieListToprated = createAsyncThunk('getMovieListToprated', async ({ page }) => {
+    const response = await apiService.get(`/movie/top_rated?&page=${page}`, options)
     return response.results
 })
-export const getMovieListUpcoming = createAsyncThunk('getMovieListUpcoming', async () => {
-    const response = await apiService.get("/movie/upcoming", options)
+export const getMovieListUpcoming = createAsyncThunk('getMovieListUpcoming', async ({ page }) => {
+    const response = await apiService.get(`/movie/upcoming?&page=${page}`, options)
     return response.results
 })
 
