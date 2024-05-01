@@ -36,7 +36,7 @@ function DetailPage() {
         <Stack sx={{ width: "100%", marginTop: "100px", marginBottom: "50px" }} alignItems={"center"} spacing={3} justifyContent={"center"}>
             <Stack sx={{ width: "80%", position: "relative" }}>
                 <div className='group-img-detail'>
-                    <img src={`https://image.tmdb.org/t/p/w500${detailId.backdrop_path}`} alt={detailId.title} height={"550px"} width={"100%"} style={{ borderRadius: "10px" }} />
+                    <img src={`https://image.tmdb.org/t/p/w500${detailId.poster_path}`} alt={detailId.title} height={"550px"} width={"100%"} style={{ borderRadius: "10px" }} />
                     <div className='drop'></div>
                     <div className='group-name-detail'>
                         <Typography sx={{ fontSize: "2rem" }} variant='subtitle2'>{detailId.title}</Typography>
