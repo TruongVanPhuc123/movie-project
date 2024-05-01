@@ -39,6 +39,7 @@ function Navbar() {
   const genresList = useSelector(state => state.genres?.genresList)
   const dispatch = useDispatch()
 
+
   const handleClick = (fill) => {
     if (fill === "genres") {
       setOpenGenres(!openGenres)

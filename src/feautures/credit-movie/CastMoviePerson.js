@@ -1,21 +1,14 @@
+import { Stack, Typography } from '@mui/material'
 import React from 'react'
-import { Box, Stack, Typography } from '@mui/material'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import CastMoviePerson from './credit-movie/CastMoviePerson';
 
-function CastMovie({ castMovie, newCast, title, handlePerson, fill }) {
-
-    let defaultIndex = 0;
-    let secondIndex = 5
-
+function CastMoviePerson({ title, castMovie, newCast, defaultIndex, secondIndex, handlePerson }) {
     return (
         <>
-            {fill === 'person' ?
-                <CastMoviePerson title={title} castMovie={castMovie} newCast={newCast} handlePerson={handlePerson} defaultIndex={defaultIndex} secondIndex={secondIndex} />
-                :
-                <Stack sx={{ width: "80%" }}>
+            {castMovie?.length !== 0 && (
+                <Stack sx={{ width: "100%" }}>
                     <div id='title-movie'>
                         <Typography variant='h5'>
                             <span>{title}</span>
@@ -30,11 +23,11 @@ function CastMovie({ castMovie, newCast, title, handlePerson, fill }) {
                                     <SwiperSlide>
                                         <Stack direction={"row"} spacing={3} alignItems={"center"} justifyContent={"center"}>
                                             {newCast?.slice(defaultIndex, secondIndex).map(cast => (
-                                                cast.profile_path !== null && (
+                                                cast.backdrop_path !== null && (
                                                     <div style={{ cursor: "pointer" }} onClick={() => handlePerson(cast.id)}>
-                                                        <img src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`} alt={cast.original_name} width={"100%"} height={"auto"} />
+                                                        <img src={`https://image.tmdb.org/t/p/w500${cast.backdrop_path}`} alt={cast.original_name} width={"100%"} height={"auto"} />
                                                         <Typography variant="subtitle1">
-                                                            <span> {cast.name} ({cast.known_for_department})</span>
+                                                            <span> {cast.title} </span>
                                                         </Typography>
                                                     </div>
                                                 )
@@ -46,9 +39,9 @@ function CastMovie({ castMovie, newCast, title, handlePerson, fill }) {
                         </Swiper>
                     </Stack>
                 </Stack>
-            }
+            )}
         </>
     )
 }
 
-export default CastMovie
+export default CastMoviePerson

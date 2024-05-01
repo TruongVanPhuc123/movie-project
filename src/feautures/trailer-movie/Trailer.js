@@ -42,6 +42,8 @@ export default function Trailer({ trailerId }) {
     const key = useSelector(state => state.trailer.trailerId)
     const dispatch = useDispatch()
 
+    console.log(key)
+
     React.useEffect(() => {
         dispatch(getIdTrailer({ id: trailerId }))
     }, [trailerId, dispatch])

@@ -46,7 +46,7 @@ function TVPage() {
                         id === "Popular" ? popular :
                             toprated
 
-            } title={id} render="NoSwiper" page={page} handlePage={handlePage} />
+            } title={id} render="NoSwiper" page={page} handlePage={handlePage} fill='TV' />
         </Stack>
     )
 }

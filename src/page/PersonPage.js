@@ -21,12 +21,12 @@ function PersonPage() {
 
     return (
         <Stack sx={{ width: "100%", paddingTop: "100px" }} alignItems={"center"} justifyContent={"center"}>
-            <Stack sx={{ width: "80%", height: "auto", position: "relative", zIndex: "200" }}>
+            <Stack sx={{ width: "80%", height: "auto", position: "relative", zIndex: "90" }}>
                 <Stack direction={"row"} spacing={3}>
                     <Box>
                         <img src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} width={"300px"} height={"350px"} style={{ borderRadius: "10px" }} />
                     </Box>
-                    <Stack sx={{ width: "90%", textAlign: "start" }} spacing={3} justifyContent={"center"}>
+                    <Stack sx={{ width: "90%", textAlign: "start" }} spacing={3} justifyContent={"start"}>
                         <Box>
                             <Typography variant="h5">
                                 <span>

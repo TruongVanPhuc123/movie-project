@@ -8,7 +8,7 @@ const CustomizeIconButton = styled(IconButton)`
     color:white;
 `
 
-function SearchListMovie({ title, query, page, movies, handlePage }) {
+function SearchListMovie({ title, query, page, movies, handlePage, fill }) {
     return (
         <Stack justifyContent={"center"} alignItems={"center"}>
             <Box className='container-main' style={{ width: "80%", paddingTop: "50px" }}>

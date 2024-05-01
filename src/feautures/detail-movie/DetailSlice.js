@@ -12,6 +12,7 @@ export const getMovieDetail = createAsyncThunk('getMovieDetail', async ({ id, pa
 })
 
 
+
 export const detailSlice = createSlice({
     name: "detail",
     initialState,

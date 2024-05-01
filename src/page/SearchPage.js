@@ -15,6 +15,8 @@ function SearchPage() {
     const [searchParams] = useSearchParams()
     const dispatch = useDispatch()
 
+    console.log(searchList)
+
     let query = searchParams.get("query")
 
     useEffect(() => {

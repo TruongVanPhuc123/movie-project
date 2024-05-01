@@ -20,8 +20,6 @@ function Credits({ id }) {
     const crew = creditsList.crew
     const newCrew = creditsList.crew
 
-    console.log(crew)
-
     const handlePerson = (id) => {
         navigate(`/person/${id}`)
     }
